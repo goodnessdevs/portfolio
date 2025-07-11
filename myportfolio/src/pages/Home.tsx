@@ -32,7 +32,7 @@ function Home() {
         <span className="text-chart-2 text-xl">Full Stack Developer</span>
         <motion.div variants={linkVariant} initial="hidden" whileInView="visible" transition={{ delay: 0.3, duration: 0.9, ease: "easeInOut" }} viewport={{ once: false }} className="flex justify-center text-4xl gap-3 mt-4">
           <a
-            href="https://github.com"
+            href="https://github.com/goodnessdevs"
             target="_blank"
             className="p-4 border rounded-md flex items-center gap-2"
             rel="noopener noreferrer"
@@ -40,7 +40,7 @@ function Home() {
             <FontAwesomeIcon icon={faGithub} size="2xs" />
           </a>
           <a
-            href="https://linkedin.com"
+            href="https://linkedin.com/in/goodness-omogbeja-47b99a292"
             target="_blank"
             className="p-4 border rounded-md flex items-center gap-2"
             rel="noopener noreferrer"
@@ -48,7 +48,7 @@ function Home() {
             <FontAwesomeIcon icon={faLinkedin} size="2xs" />
           </a>
           <a
-            href="https://instagram.com"
+            href="https://www.instagram.com/gee_nyne/"
             target="_blank"
             className="p-4 border rounded-md flex items-center gap-2"
             rel="noopener noreferrer"

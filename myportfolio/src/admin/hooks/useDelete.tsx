@@ -13,6 +13,8 @@ const useDelete = () => {
         method: "DELETE",
       });
 
+      console.log(`Deleting message with ID: ${id}`);
+
       if (!res.ok) throw new Error("Delete failed");
 
       return true;

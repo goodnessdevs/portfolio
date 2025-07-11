@@ -5,6 +5,6 @@ const router = Router()
 router.get("/:id", getAMessage)
 router.get("/", getAllMessages)
 router.post("/create", createMessage)
-router.post("/delete/:id", deleteMessage)
+router.delete("/delete/:id", deleteMessage)
 
 export default router

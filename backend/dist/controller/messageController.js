@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.deleteMessage = exports.createMessage = exports.getAllMessages = exports.getAMessage = void 0;
 const client_1 = require("@prisma/client");
 const prisma = new client_1.PrismaClient();
-const getAMessage = async (req, res, next) => {
+const getAMessage = async (req, res) => {
     const { id } = req.params;
     if (!id || isNaN(Number(id))) {
         return res.status(400).json({ success: false, error: "Invalid ID" });
@@ -26,9 +26,13 @@ const getAMessage = async (req, res, next) => {
     }
 };
 exports.getAMessage = getAMessage;
-const getAllMessages = async (req, res, next) => {
+const getAllMessages = async (req, res) => {
     try {
-        const theMessages = await prisma.message.findMany({});
+        const theMessages = await prisma.message.findMany({
+            orderBy: {
+                createdAt: "desc",
+            },
+        });
         if (!theMessages) {
             return res
                 .status(400)
@@ -44,8 +48,13 @@ const getAllMessages = async (req, res, next) => {
     }
 };
 exports.getAllMessages = getAllMessages;
-const createMessage = async (req, res, next) => {
+const createMessage = async (req, res) => {
     const { name, email, message } = req.body;
+    if (!name || !email || !message) {
+        return res
+            .status(400)
+            .json({ success: false, error: "All fields are required" });
+    }
     try {
         const newMessage = await prisma.message.create({
             data: {
@@ -64,7 +73,7 @@ const createMessage = async (req, res, next) => {
     }
 };
 exports.createMessage = createMessage;
-const deleteMessage = async (req, res, next) => {
+const deleteMessage = async (req, res) => {
     const { id } = req.params;
     if (!id || isNaN(Number(id))) {
         return res.status(400).json({ success: false, error: "Invalid ID" });

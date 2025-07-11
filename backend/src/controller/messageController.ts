@@ -1,12 +1,8 @@
 import { PrismaClient } from "@prisma/client";
-import { NextFunction, Request, Response } from "express";
+import { Request, Response } from "express";
 const prisma = new PrismaClient();
 
-export const getAMessage = async (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
+export const getAMessage = async (req: Request, res: Response) => {
   const { id } = req.params;
 
   if (!id || isNaN(Number(id))) {
@@ -33,13 +29,13 @@ export const getAMessage = async (
   }
 };
 
-export const getAllMessages = async (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
+export const getAllMessages = async (req: Request, res: Response) => {
   try {
-    const theMessages = await prisma.message.findMany({});
+    const theMessages = await prisma.message.findMany({
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
 
     if (!theMessages) {
       return res
@@ -56,12 +52,14 @@ export const getAllMessages = async (
   }
 };
 
-export const createMessage = async (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
+export const createMessage = async (req: Request, res: Response) => {
   const { name, email, message } = req.body;
+
+  if (!name || !email || !message) {
+    return res
+      .status(400)
+      .json({ success: false, error: "All fields are required" });
+  }
 
   try {
     const newMessage = await prisma.message.create({
@@ -81,11 +79,7 @@ export const createMessage = async (
   }
 };
 
-export const deleteMessage = async (
-  req: Request,
-  res: Response,
-  next: NextFunction
-) => {
+export const deleteMessage = async (req: Request, res: Response) => {
   const { id } = req.params;
 
   if (!id || isNaN(Number(id))) {

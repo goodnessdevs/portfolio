@@ -27,7 +27,7 @@ function Footer() {
           <h2 className="text-3xl">Follow me:</h2>
           <div className="flex md:justify-start justify-center gap-4 text-3xl my-4">
             <a
-              href="https://github.com"
+              href="https://github.com/goodnessdevs"
               target="_blank"
               className="p-4 border rounded-md flex items-center gap-2"
               rel="noopener noreferrer"
@@ -35,7 +35,7 @@ function Footer() {
               <FontAwesomeIcon icon={faGithub} size="2xs" />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://linkedin.com/in/goodness-omogbeja-47b99a292"
               target="_blank"
               className="p-4 border rounded-md flex items-center gap-2"
               rel="noopener noreferrer"
@@ -43,7 +43,7 @@ function Footer() {
               <FontAwesomeIcon icon={faLinkedin} size="2xs" />
             </a>
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/gee_nyne/"
               target="_blank"
               className="p-4 border rounded-md flex items-center gap-2"
               rel="noopener noreferrer"
