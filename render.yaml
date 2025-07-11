@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: portfolio
+    env: node
+    plan: free
+    region: oregon
+    rootDir: backend
+    buildCommand: npm run build
+    startCommand: node dist/server.js
+    envVars:
+      - key: DATABASE_URL
+        value: postgresql://neondb_owner:npg_AwkUvQSNg3T8@ep-autumn-king-afsehrdg-pooler.c-2.us-west-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require
+      - key: CLIENT_URL
+        value: https://devwithgoody.vercel.app
+      - key: PORT
+        value: 5000
