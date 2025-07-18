@@ -16,7 +16,7 @@ function Navbar() {
       <NavigationMenu>
         <NavigationMenuList className="space-x-4 tracking-wide">
           <NavigationMenuItem>
-            <NavigationMenuLink className="cursor-pointer">
+            <NavigationMenuLink className="cursor-pointer" asChild>
               <Link
                 to="home"
                 smooth={true}
@@ -31,7 +31,7 @@ function Navbar() {
           </NavigationMenuItem>
 
           <NavigationMenuItem>
-            <NavigationMenuLink className="cursor-pointer">
+            <NavigationMenuLink className="cursor-pointer" asChild>
               <Link
                 to="know-me"
                 smooth={true}
@@ -46,7 +46,7 @@ function Navbar() {
           </NavigationMenuItem>
 
           <NavigationMenuItem>
-            <NavigationMenuLink className="cursor-pointer">
+            <NavigationMenuLink className="cursor-pointer" asChild>
               <Link
                 to="projects"
                 smooth={true}
@@ -61,7 +61,7 @@ function Navbar() {
           </NavigationMenuItem>
 
           <NavigationMenuItem>
-            <NavigationMenuLink className="cursor-pointer">
+            <NavigationMenuLink className="cursor-pointer" asChild>
               <Link
                 to="contact"
                 smooth={true}
