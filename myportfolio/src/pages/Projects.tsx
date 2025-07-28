@@ -52,9 +52,7 @@ function Projects() {
           </div>
         </CardContent>
       </MotionCard>
-      Geetask is a sleek and efficient to-do list app built for focus and
-      productivity. It helps users effortlessly organize tasks, stay on track,
-      and get things done—without distractions.
+      
       {/* Project 2 */}
       <MotionCard
         initial={{ opacity: 0, y: 80 }}
