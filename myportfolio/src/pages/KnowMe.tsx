@@ -86,10 +86,6 @@ const skills = [
     name: "RESTful APIs",
     icon: undefined,
   },
-  {
-    name: "Responsive Design",
-    icon: undefined,
-  },
 ];
 
 export default function KnowMe() {

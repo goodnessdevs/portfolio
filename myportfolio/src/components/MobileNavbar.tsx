@@ -10,6 +10,7 @@ import { Link } from "react-scroll";
 import { ModeToggle } from "./ui/mode-toggle";
 import { Separator } from "./ui/separator";
 import { useState } from "react";
+import NavAvatar from "./NavAvatar";
 
 function SheetNavbar() {
   const [open, setOpen] = useState(false);
@@ -87,9 +88,7 @@ function SheetNavbar() {
 export default function MobileNavbar() {
   return (
     <nav className="md:hidden fixed z-50 w-full bg-cyan-100 dark:bg-cyan-950 flex justify-between items-center p-5">
-      <div>
-        <span className="text-xl font-semibold">Goodness O.</span>
-      </div>
+      <NavAvatar />
       <SheetNavbar />
     </nav>
   );

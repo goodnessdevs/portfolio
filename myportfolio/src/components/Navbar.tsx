@@ -3,15 +3,16 @@ import {
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-} from "@/components/ui/navigation-menu";
+} from "./ui/navigation-menu";
 import { Link } from "react-scroll";
 import { ModeToggle } from "./ui/mode-toggle";
 import { Download } from "lucide-react";
+import NavAvatar from "./NavAvatar";
 
 function Navbar() {
   return (
     <nav className="hidden fixed z-50 w-full bg-cyan-100 dark:bg-cyan-950 md:flex justify-around items-center p-4 text-2xl font-semibold">
-      <h2>Goodness O.</h2>
+      <NavAvatar />
 
       <NavigationMenu>
         <NavigationMenuList className="space-x-4 tracking-wide">
