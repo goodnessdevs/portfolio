@@ -24,7 +24,7 @@ function Navbar() {
                 duration={500}
                 spy={true}
                 offset={-70}
-                activeClass="border-0 border-b-2 border-b-blue-500 font-bold"
+                activeClass="border-0 border-b-2 border-b-cyan-500 font-bold"
               >
                 Home
               </Link>
@@ -39,7 +39,7 @@ function Navbar() {
                 duration={500}
                 spy={true}
                 offset={-70}
-                activeClass="border-0 border-b-2 border-b-blue-500 font-bold"
+                activeClass="border-0 border-b-2 border-b-cyan-500 font-bold"
               >
                 Know Me
               </Link>
@@ -54,7 +54,7 @@ function Navbar() {
                 duration={500}
                 spy={true}
                 offset={-70}
-                activeClass="border-0 border-b-2 border-b-blue-500 font-bold"
+                activeClass="border-0 border-b-2 border-b-cyan-500 font-bold"
               >
                 Projects
               </Link>
@@ -69,7 +69,7 @@ function Navbar() {
                 duration={500}
                 spy={true}
                 offset={-70}
-                activeClass="border-0 border-b-2 border-b-blue-500 font-bold"
+                activeClass="border-0 border-b-2 border-b-cyan-500 font-bold"
               >
                 Contact
               </Link>
