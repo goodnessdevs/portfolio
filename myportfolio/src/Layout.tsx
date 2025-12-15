@@ -17,7 +17,7 @@ function Layout({ children }: { children: ReactNode }) {
       {/* mobile */}
       <MobileNavbar />
 
-      <main className="p-6 z-10 overflow-x-hidden">
+      <main className="p-6 z-10 overflow-x-hidden manrope">
         {children}
       </main>
 

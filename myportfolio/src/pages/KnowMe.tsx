@@ -1,7 +1,5 @@
 import {
-  faBootstrap,
   faCss3,
-  faGithub,
   faHtml5,
   faNodeJs,
   faReact,
@@ -9,83 +7,66 @@ import {
   faSquareJs,
 } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { motion } from "motion/react";
+import { motion, type Variants } from "motion/react";
 
-const aboutVariant = {
-  hidden: { opacity: 0, x: -100 },
-  visible: { opacity: 1, x: 0 },
+const aboutVariant: Variants = {
+  hidden: { opacity: 0, x: -40 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      type: "spring",
+      stiffness: 80,
+      damping: 18,
+    },
+  },
 };
 
-const skillsVariant = {
-  hidden: { opacity: 0, x: 100 },
-  visible: { opacity: 1, x: 0 },
+const skillsWrapperVariant: Variants = {
+  hidden: { opacity: 0, x: 40 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      type: "spring",
+      stiffness: 80,
+      damping: 18,
+      delay: 0.1,
+      when: "beforeChildren",
+      staggerChildren: 0.08,
+    },
+  },
 };
+
+const skillItemVariant: Variants = {
+  hidden: { opacity: 0, y: 15, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      type: "spring",
+      stiffness: 120,
+      damping: 12,
+    },
+  },
+};
+
 
 const skills = [
-  {
-    name: "HTML5",
-    icon: faHtml5,
-  },
-  {
-    name: "CSS3",
-    icon: faCss3,
-  },
-  {
-    name: "Bootstrap",
-    icon: faBootstrap,
-  },
-  {
-    name: "Tailwind CSS",
-    icon: undefined,
-  },
-  {
-    name: "JavaScript",
-    icon: faSquareJs,
-  },
-  {
-    name: "React.js",
-    icon: faReact,
-  },
-  {
-    name: "Framer Motion",
-    icon: undefined,
-  },
-  {
-    name: "Node.js",
-    icon: faNodeJs,
-  },
-  {
-    name: "MongoDB",
-    icon: undefined,
-  },
-  {
-    name: "TypeScript",
-    icon: undefined,
-  },
-  {
-    name: "ShadCN UI",
-    icon: undefined,
-  },
-  {
-    name: "Prisma ORM",
-    icon: undefined,
-  },
-  {
-    name: "PostgreSQL",
-    icon: undefined,
-  },
-  {
-    name: "Git",
-    icon: faSquareGit,
-  },
-  {
-    name: "GitHub",
-    icon: faGithub,
-  },
-  {
-    name: "RESTful APIs",
-    icon: undefined,
-  },
+  { name: "HTML5", icon: faHtml5 },
+  { name: "CSS3", icon: faCss3 },
+  { name: "Tailwind CSS", icon: undefined },
+  { name: "JavaScript", icon: faSquareJs },
+  { name: "React.js", icon: faReact },
+  { name: "Next.js", icon: undefined },
+  { name: "Node.js", icon: faNodeJs },
+  { name: "MongoDB", icon: undefined },
+  { name: "TypeScript", icon: undefined },
+  { name: "Prisma ORM", icon: undefined },
+  { name: "PostgreSQL", icon: undefined },
+  { name: "Git and Github", icon: faSquareGit },
+  { name: "RESTful APIs", icon: undefined },
 ];
 
 export default function KnowMe() {
@@ -96,8 +77,8 @@ export default function KnowMe() {
         variants={aboutVariant}
         initial="hidden"
         whileInView="visible"
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        viewport={{ once: false }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: false, amount: 0.2 }}
         className="space-y-4"
       >
         <h2 className="text-4xl font-bold mb-4 text-primary">About Me</h2>
@@ -131,27 +112,30 @@ export default function KnowMe() {
 
       {/* Skills */}
       <motion.div
-        variants={skillsVariant}
+        variants={skillsWrapperVariant}
         initial="hidden"
         whileInView="visible"
-        transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-        viewport={{ once: false }}
+        viewport={{ once: false, amount: 0.2 }}
         className="space-y-4"
       >
         <h2 className="text-3xl font-bold text-primary">Skills</h2>
-        <ul className="grid grid-cols-2 sm:grid-cols-3 gap-3 text-muted-foreground">
+
+        <motion.ul
+          className="grid grid-cols-2 sm:grid-cols-3 gap-3 text-muted-foreground"
+        >
           {skills.map((skill, index) => (
-            <li
+            <motion.li
               key={index}
-              className="bg-muted whitespace-nowrap px-3 py-2 rounded-md flex items-center"
+              variants={skillItemVariant}
+              className="bg-chart-2/20 backdrop-blur-xs text-primary text-sm whitespace-nowrap px-3 py-2 rounded-md flex items-center"
             >
               {skill.icon && (
                 <FontAwesomeIcon icon={skill.icon} className="mr-2" />
               )}
               {skill.name}
-            </li>
+            </motion.li>
           ))}
-        </ul>
+        </motion.ul>
       </motion.div>
     </section>
   );

@@ -1,139 +1,133 @@
 import { useEffect, useRef } from "react";
 
 function CanvasBackground() {
-  const canvasRef = useRef(null);
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
-    const canvas = canvasRef.current as HTMLCanvasElement | null;
+    const canvas = canvasRef.current;
     if (!canvas) return;
-    const handleResize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  useEffect(() => {
-    const canvas = canvasRef.current as HTMLCanvasElement | null;
-    if (!canvas) return;
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    const w = canvas.width;
-    const h = canvas.height;
 
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
-    const context = ctx as CanvasRenderingContext2D;
 
-    class Triangle {
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+
+    resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
+
+    let w = canvas.width;
+    let h = canvas.height;
+
+    type Node = {
       x: number;
       y: number;
-      dx: number;
-      dy: number;
+      vx: number;
+      vy: number;
       radius: number;
-      ctx: CanvasRenderingContext2D;
+    };
 
-      constructor(
-        x: number,
-        y: number,
-        dx: number,
-        dy: number,
-        ctx: CanvasRenderingContext2D
-      ) {
-        this.x = x;
-        this.y = y;
-        this.dx = dx;
-        this.dy = dy;
-        this.radius = 30; // approximate triangle size
-        this.ctx = ctx;
+    const nodes: Node[] = [];
+    const NODE_COUNT = 40;
+    const MAX_DISTANCE = 180;
+
+    const initNodes = () => {
+      nodes.length = 0;
+      w = canvas.width;
+      h = canvas.height;
+      for (let i = 0; i < NODE_COUNT; i++) {
+        nodes.push({
+          x: Math.random() * w,
+          y: Math.random() * h,
+          vx: (Math.random() - 0.5) * 0.5,
+          vy: (Math.random() - 0.5) * 0.5,
+          radius: 2 + Math.random() * 1.5,
+        });
       }
+    };
 
-      draw() {
-        this.ctx.beginPath();
-        this.ctx.moveTo(this.x, this.y);
-        this.ctx.lineTo(this.x + 5, this.y - 10);
-        this.ctx.lineTo(this.x + 10, this.y);
-        this.ctx.closePath();
-        this.ctx.fillStyle = "rgba(94, 230, 189, 0.397)";
-        this.ctx.fill();
-        this.ctx.strokeStyle = "oklch(10.503% 0.04535 275.281)";
-        this.ctx.stroke();
-      }
-
-      update(triangles: Triangle[]) {
-        if (this.x + this.radius > w || this.x - this.radius < 0) this.dx *= -1;
-        if (this.y + this.radius > h || this.y - this.radius < 0) this.dy *= -1;
-
-        this.x += this.dx;
-        this.y += this.dy;
-
-        this.checkCollisions(triangles);
-        this.draw();
-      }
-
-      checkCollisions(triangles: Triangle[]) {
-        for (const other of triangles) {
-          if (this === other) continue;
-
-          const dx = this.x - other.x;
-          const dy = this.y - other.y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-
-          if (distance < this.radius + other.radius) {
-            // simple elastic collision: swap velocities
-            const tempDx = this.dx;
-            const tempDy = this.dy;
-            this.dx = other.dx;
-            this.dy = other.dy;
-            other.dx = tempDx;
-            other.dy = tempDy;
-
-            // adjust position slightly to avoid sticking
-            const overlap = this.radius + other.radius - distance;
-            const angle = Math.atan2(dy, dx);
-            const moveX = Math.cos(angle) * (overlap / 2);
-            const moveY = Math.sin(angle) * (overlap / 2);
-
-            this.x += moveX;
-            this.y += moveY;
-            other.x -= moveX;
-            other.y -= moveY;
-          }
-        }
-      }
-    }
-
-    let triangleArray: Triangle[] = [];
-
-    for (let i = 0; i < 20; i++) {
-      let x = Math.random() * w;
-      let y = Math.random() * h;
-      let dx = (Math.random() - 0.5) * 2;
-      let dy = (Math.random() - 0.5) * 2;
-
-      let triangles = new Triangle(x, y, dx, dy, ctx);
-      triangleArray.push(triangles);
-    }
+    initNodes();
 
     let animationId: number;
 
-    function animate() {
+    const animate = () => {
       animationId = requestAnimationFrame(animate);
-      context.clearRect(0, 0, w, h);
-      triangleArray.forEach((triangle) => triangle.update(triangleArray));
-    }
+      w = canvas.width;
+      h = canvas.height;
+
+      // Background: soft tan
+      ctx.fillStyle = "#000001";
+      ctx.fillRect(0, 0, w, h);
+
+      // Optional subtle grid lines
+      ctx.strokeStyle = "rgba(100, 150, 150, 0.15)";
+      ctx.lineWidth = 1;
+      const gridSize = 80;
+      for (let x = 0; x < w; x += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(x, 0);
+        ctx.lineTo(x, h);
+        ctx.stroke();
+      }
+      for (let y = 0; y < h; y += gridSize) {
+        ctx.beginPath();
+        ctx.moveTo(0, y);
+        ctx.lineTo(w, y);
+        ctx.stroke();
+      }
+
+      // Update and draw nodes
+      // Inside animate(), where nodes are drawn
+      nodes.forEach((node) => {
+        node.x += node.vx;
+        node.y += node.vy;
+
+        if (node.x < 0 || node.x > w) node.vx *= -1;
+        if (node.y < 0 || node.y > h) node.vy *= -1;
+
+        ctx.beginPath();
+        ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2);
+        ctx.fillStyle = "#00FFFF"; // dark fill
+        ctx.fill();
+      });
+
+      // Where nearby nodes are connected
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const a = nodes[i];
+          const b = nodes[j];
+          const dx = a.x - b.x;
+          const dy = a.y - b.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < MAX_DISTANCE) {
+            const alpha = 1 - dist / MAX_DISTANCE;
+            ctx.strokeStyle = `rgba(0, 128, 40, ${alpha})`; // green stroke
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(a.x, a.y);
+            ctx.lineTo(b.x, b.y);
+            ctx.stroke();
+          }
+        }
+      }
+    };
 
     animate();
 
-    return () => cancelAnimationFrame(animationId);
+    return () => {
+      cancelAnimationFrame(animationId);
+      window.removeEventListener("resize", resizeCanvas);
+    };
   }, []);
 
   return (
     <canvas
       ref={canvasRef}
       className="fixed top-0 left-0 w-full h-full z-[-1] pointer-events-none"
-    ></canvas>
+    />
   );
 }
 

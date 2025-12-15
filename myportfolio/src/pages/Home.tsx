@@ -21,7 +21,7 @@ const linkVariant = {
 
 function Home() {
   return (
-    <div className="text-center">
+    <div className="text-center md:flex justify-between items-center md:gap-x-4">
       <motion.div variants={imageVariant} initial="hidden" whileInView="visible" transition={{ duration: 0.9, ease: "easeInOut" }} viewport={{ once: false }} className="flex justify-center">
         <ProfileImage />
       </motion.div>
@@ -58,7 +58,7 @@ function Home() {
         </motion.div>
 
         <Link to="know-me" smooth={true} duration={500}>
-          <motion.button initial={{ scale: 0.7 }} animate={{ scale: 1.25 }} transition={{repeat: Infinity, duration: 0.5}} className="bg-cyan-700 text-white p-2 w-fit transition duration-200 rounded-md mx-auto mt-8 cursor-pointer flex justify-center items-center">
+          <motion.button className="bg-chart-2 text-white animate-bounce p-2 text-sm w-fit transition duration-200 rounded-md mx-auto mt-8 cursor-pointer flex justify-center items-center">
             About me <MoveDown size={16} />
           </motion.button>
         </Link>

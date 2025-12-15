@@ -7,7 +7,7 @@ import {
   SheetTrigger,
 } from "./ui/sheet";
 import { Link } from "react-scroll";
-import { ModeToggle } from "./ui/mode-toggle";
+// import { ModeToggle } from "./ui/mode-toggle";
 import { Separator } from "./ui/separator";
 import { useState } from "react";
 import NavAvatar from "./NavAvatar";
@@ -23,7 +23,7 @@ function SheetNavbar() {
       <SheetTrigger>
         <Menu size="25" />
       </SheetTrigger>
-      <SheetContent className="md:hidden block">
+      <SheetContent className="md:hidden block" side="top">
         <SheetHeader>
           <SheetTitle>Menu</SheetTitle>
         </SheetHeader>
@@ -76,9 +76,9 @@ function SheetNavbar() {
             </a>
             </button>
           
-          <div className="mx-2">
+          {/* <div className="mx-2">
             <ModeToggle />
-          </div>
+          </div> */}
         </nav>
       </SheetContent>
     </Sheet>
@@ -87,7 +87,7 @@ function SheetNavbar() {
 
 export default function MobileNavbar() {
   return (
-    <nav className="md:hidden fixed z-50 w-full bg-cyan-100 dark:bg-cyan-950 flex justify-between items-center p-5">
+    <nav className="md:hidden manrope fixed z-50 w-full flex justify-between items-center p-5">
       <NavAvatar />
       <SheetNavbar />
     </nav>

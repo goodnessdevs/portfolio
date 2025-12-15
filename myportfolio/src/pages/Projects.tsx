@@ -23,7 +23,7 @@ function Projects() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
         viewport={{ once: false }}
-        className="p-6"
+        className="p-6 bg-gradient-to-br from-chart-2/40 via-black/40 to-black/40 backdrop-blur-sm"
       >
         <CardContent>
           <div className="md:flex justify-between items-center md:space-x-20">
@@ -59,14 +59,14 @@ function Projects() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.3 }}
         viewport={{ once: false }}
-        className="p-6"
+        className="p-6 bg-gradient-to-br from-chart-2/40 via-black/40 to-black/40 backdrop-blur-sm"
       >
         <CardContent>
           <div className="md:flex justify-between items-center md:space-x-20">
             <div className="p-2 rounded-md md:w-[400px] w-fit flex md:justify-center items-center bg-gray-900">
               <img
                 src={site3}
-                alt="BlogTide"
+                alt="Geetask"
                 className="rounded-md w-96 h-56 object-fill"
               />
             </div>

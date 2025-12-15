@@ -5,17 +5,14 @@ import {
   NavigationMenuList,
 } from "./ui/navigation-menu";
 import { Link } from "react-scroll";
-import { ModeToggle } from "./ui/mode-toggle";
-import { Download } from "lucide-react";
-import NavAvatar from "./NavAvatar";
+// import { ModeToggle } from "./ui/mode-toggle";
+import { Download, Home, IdCard, PanelsTopLeft, Phone } from "lucide-react";
 
 function Navbar() {
   return (
-    <nav className="hidden fixed z-50 w-full bg-cyan-100 dark:bg-cyan-950 md:flex justify-around items-center p-4 text-2xl font-semibold">
-      <NavAvatar />
-
+    <nav className="hidden fixed z-50 w-full md:flex justify-center items-center p-3 text-lg font-semibold manrope backdrop-blur-xs">
       <NavigationMenu>
-        <NavigationMenuList className="space-x-4 tracking-wide">
+        <NavigationMenuList className="space-x-8 tracking-wide">
           <NavigationMenuItem>
             <NavigationMenuLink className="cursor-pointer">
               <Link
@@ -25,8 +22,9 @@ function Navbar() {
                 spy={true}
                 offset={-70}
                 activeClass="border-0 border-b-2 border-b-cyan-500 font-bold"
+                className="flex gap-x-1 items-center"
               >
-                Home
+                <Home /> Home
               </Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
@@ -40,8 +38,9 @@ function Navbar() {
                 spy={true}
                 offset={-70}
                 activeClass="border-0 border-b-2 border-b-cyan-500 font-bold"
+                className="flex gap-x-1 items-center"
               >
-                Know Me
+                <IdCard /> Know Me
               </Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
@@ -55,8 +54,9 @@ function Navbar() {
                 spy={true}
                 offset={-70}
                 activeClass="border-0 border-b-2 border-b-cyan-500 font-bold"
+                className="flex gap-x-1 items-center"
               >
-                Projects
+                <PanelsTopLeft /> Projects
               </Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
@@ -70,26 +70,27 @@ function Navbar() {
                 spy={true}
                 offset={-70}
                 activeClass="border-0 border-b-2 border-b-cyan-500 font-bold"
+                className="flex gap-x-1 items-center"
               >
-                Contact
+                <Phone /> Contact
               </Link>
             </NavigationMenuLink>
           </NavigationMenuItem>
 
-          <NavigationMenuItem className="bg-gray-800 text-white p-2 animate-bounce rounded-md hover:opacity-85">
+          <NavigationMenuItem className="bg-chart-2/50 backdrop-blur-xs text-white p-2 text-sm rounded-md hover:opacity-85">
             <a
               href="/resume.pdf"
               download
-              className="flex items-center gap-2 text-[15px]"
+              className="flex items-center gap-2"
             >
               <Download className="w-4 h-4" />
               Resume
             </a>
           </NavigationMenuItem>
 
-          <NavigationMenuItem>
+          {/* <NavigationMenuItem>
             <ModeToggle />
-          </NavigationMenuItem>
+          </NavigationMenuItem> */}
         </NavigationMenuList>
       </NavigationMenu>
     </nav>

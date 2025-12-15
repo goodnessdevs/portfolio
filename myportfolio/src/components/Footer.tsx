@@ -8,7 +8,7 @@ import { Separator } from "@/components/ui/separator";
 
 function Footer() {
   return (
-    <footer className="md:p-20 p-16 bg-black text-white text-center md:text-start">
+    <footer className="bg-gradient-to-br from-chart-2/40 via-black/40 to-black/40 backdrop-blur-sm manrope md:p-20 p-16 border-t-2 border-t-white text-white text-center md:text-start">
       <div className="md:flex justify-between items-center">
         <div className="">
           <h2 className="font-semibold text-3xl">
