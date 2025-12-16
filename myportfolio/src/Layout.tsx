@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import MobileNavbar from "./components/MobileNavbar";
 import Footer from "./components/Footer";
 import CanvasBackground from "./components/CanvasBackground";
+import { Analytics } from "@vercel/analytics/react"
 
 function Layout({ children }: { children: ReactNode }) {
   return (
@@ -22,6 +23,7 @@ function Layout({ children }: { children: ReactNode }) {
 
       <Footer />
       <Toaster position="top-center" />
+      <Analytics />
     </>
   );
 }

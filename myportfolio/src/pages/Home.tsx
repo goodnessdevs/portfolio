@@ -52,7 +52,7 @@ function Home() {
           </a>
         </motion.div>
 
-        <Link to="know-me" smooth={true} duration={500}>
+        <Link to="about-me" smooth={true} duration={500}>
           <motion.button className="bg-chart-2/80 text-white animate-bounce p-2 text-sm w-fit transition duration-200 rounded-md mx-auto mt-8 cursor-pointer flex justify-center items-center">
             About me <MoveDown size={16} />
           </motion.button>
