@@ -4,8 +4,9 @@ import Layout from "./Layout";
 import Home from "./pages/Home";
 import Projects from "./pages/Projects";
 import Contact from "./pages/Contact";
-import KnowMe from "./pages/KnowMe";
 import AdminMessages from "@/admin/AdminMessages";
+import AboutMe from "./pages/About";
+import Skills from "./pages/Skills";
 
 function LandingPage() {
   return (
@@ -19,10 +20,17 @@ function LandingPage() {
         </Element>
 
         <Element
-          name="know-me"
+          name="about-me"
           className="h-full md:h-screen flex items-center justify-between"
         >
-          <KnowMe />
+          <AboutMe />
+        </Element>
+
+        <Element
+          name="skills"
+          className="h-full md:h-screen flex items-center justify-between"
+        >
+          <Skills />
         </Element>
 
         <Element

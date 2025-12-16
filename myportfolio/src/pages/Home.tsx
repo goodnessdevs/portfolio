@@ -6,7 +6,6 @@ import {
   faLinkedin,
 } from "@fortawesome/free-brands-svg-icons";
 import { MoveDown } from "lucide-react";
-import ProfileImage from "@/components/ProfileImage";
 import { Link } from "react-scroll";
 
 const imageVariant = {
@@ -21,14 +20,10 @@ const linkVariant = {
 
 function Home() {
   return (
-    <div className="text-center md:flex justify-between items-center md:gap-x-4">
-      <motion.div variants={imageVariant} initial="hidden" whileInView="visible" transition={{ duration: 0.9, ease: "easeInOut" }} viewport={{ once: false }} className="flex justify-center">
-        <ProfileImage />
-      </motion.div>
-
-      <motion.div variants={imageVariant} initial="hidden" whileInView="visible" transition={{ delay: 0.3, duration: 0.9, ease: "easeInOut" }} viewport={{ once: false }} className="space-y-2">
+    <div className="text-center md:flex justify-center items-center md:gap-x-4">
+      <motion.div variants={imageVariant} initial="hidden" whileInView="visible" transition={{ delay: 0.3, duration: 0.9, ease: "easeInOut" }} viewport={{ once: false }} className="space-y-4 text-white">
         <h2 className="text-3xl mt-2">Hi, I'm</h2>
-        <p className=" font-semibold md:text-6xl text-4xl">Goodness Omogbeja</p>
+        <p className=" font-bold md:text-8xl text-4xl">Goodness Omogbeja</p>
         <span className="text-chart-2 text-xl">Full Stack Developer</span>
         <motion.div variants={linkVariant} initial="hidden" whileInView="visible" transition={{ delay: 0.3, duration: 0.9, ease: "easeInOut" }} viewport={{ once: false }} className="flex justify-center text-4xl gap-3 mt-4">
           <a
@@ -58,7 +53,7 @@ function Home() {
         </motion.div>
 
         <Link to="know-me" smooth={true} duration={500}>
-          <motion.button className="bg-chart-2 text-white animate-bounce p-2 text-sm w-fit transition duration-200 rounded-md mx-auto mt-8 cursor-pointer flex justify-center items-center">
+          <motion.button className="bg-chart-2/80 text-white animate-bounce p-2 text-sm w-fit transition duration-200 rounded-md mx-auto mt-8 cursor-pointer flex justify-center items-center">
             About me <MoveDown size={16} />
           </motion.button>
         </Link>

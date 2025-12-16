@@ -11,7 +11,7 @@ function Projects() {
     <div className="space-y-10 mt-28 md:mt-2">
       {/* Section Heading */}
       <div className="text-center">
-        <h2 className="text-3xl font-bold">Projects</h2>
+        <h2 className="text-3xl font-bold text-white">Projects</h2>
         <p className="text-muted-foreground">
           A showcase of some of the web applications, tools, and creative
           projects I’ve built.
@@ -46,7 +46,7 @@ function Projects() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                View Project <ExternalLink size={16} />
+                View <ExternalLink size={16} />
               </a>
             </div>
           </div>
@@ -81,7 +81,7 @@ function Projects() {
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                View Project <ExternalLink size={16} />
+                View <ExternalLink size={16} />
               </a>
             </div>
           </div>

@@ -66,15 +66,15 @@ export default function Contact() {
     >
       <Card className="rounded-2xl max-w-5xl mx-auto bg-gradient-to-br from-chart-2/40 via-black/40 to-black/40 backdrop-blur-sm">
         <CardHeader className="text-center space-y-3">
-          <p className="text-xs uppercase tracking-[0.3em] text-muted-foreground">
+          <p className="text-xs uppercase tracking-[0.3em] text-muted">
             Let’s build something
           </p>
-          <CardTitle className="text-4xl font-bold text-primary flex items-center justify-center gap-2">
+          <CardTitle className="text-4xl text-muted font-bold flex items-center justify-center gap-2">
             <MessageCircle className="w-7 h-7" />
             <span>Contact Me</span>
           </CardTitle>
-          <Separator className="w-16 mx-auto bg-primary" />
-          <p className="text-sm text-muted-foreground max-w-xl mx-auto">
+          <Separator className="w-16 mx-auto" />
+          <p className="text-sm text-sidebar-ring max-w-xl mx-auto">
             Whether you have a project in mind, a question, or just want to say
             hello, feel free to reach out through any of the channels below.
           </p>
@@ -84,13 +84,13 @@ export default function Contact() {
           {/* Contact channels */}
           <div className="space-y-4 text-muted-foreground">
             <div className="space-y-2">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em]">
                 Direct contact
               </p>
 
               <Badge
                 variant="outline"
-                className="flex items-center gap-3 p-3 w-full justify-start"
+                className="flex items-center gap-3 p-3 w-full justify-start text-white"
               >
                 <Phone size={18} />
                 <span className="font-medium tracking-wider">
@@ -107,7 +107,7 @@ export default function Contact() {
                   href="https://wa.me/2348165449350"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:underline tracking-wider"
+                  className="hover:underline tracking-wider text-white"
                 >
                   Chat on WhatsApp
                 </a>
@@ -115,7 +115,7 @@ export default function Contact() {
 
               <Badge
                 variant="outline"
-                className="flex items-center gap-3 p-3 w-full justify-start"
+                className="flex items-center gap-3 p-3 w-full justify-start text-white"
               >
                 <Mail size={18} />
                 <a
@@ -130,12 +130,12 @@ export default function Contact() {
             <Separator />
 
             <div className="space-y-2">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+              <p className="text-xs font-semibold uppercase tracking-[0.2em]">
                 Location
               </p>
               <Badge
                 variant="outline"
-                className="flex items-center gap-3 p-3 w-full justify-start"
+                className="flex items-center gap-3 p-3 w-full justify-start text-white"
               >
                 <MapPin size={18} />
                 <span>Lagos, Nigeria (remote friendly)</span>
@@ -149,18 +149,18 @@ export default function Contact() {
               <DrawerTrigger asChild>
                 <Button
                   variant="default"
-                  className="text-base px-6 py-3 w-full md:w-auto bg-primary hover:bg-primary/90 transition rounded-xl font-medium"
+                  className="text-base animate-bounce duration-100 p-6 w-full rounded-full md:w-auto bg-chart-2/90 hover:bg-chart-2 transition font-medium"
                 >
                   Send me a message
                 </Button>
               </DrawerTrigger>
 
-              <DrawerContent>
+              <DrawerContent className="bg-gradient-to-br from-chart-2 via-black/95 to-black/90">
                 <DrawerHeader className="space-y-1">
-                  <DrawerTitle className="text-2xl font-semibold">
+                  <DrawerTitle className="text-2xl font-semibold text-white">
                     Send me a message
                   </DrawerTitle>
-                  <DrawerDescription>
+                  <DrawerDescription className="text-white/70">
                     Share a bit about your idea, project, or question. Replies
                     typically within 24 hours.
                   </DrawerDescription>
