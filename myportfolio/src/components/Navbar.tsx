@@ -5,7 +5,7 @@ import {
   NavigationMenuList,
 } from "./ui/navigation-menu";
 import { Link } from "react-scroll";
-import { Download, Home, IdCard, PanelsTopLeft, Phone } from "lucide-react";
+import { Download, HelpCircle, Home, IdCard, PanelsTopLeft, Phone } from "lucide-react";
 
 function Navbar() {
   return (
@@ -40,7 +40,7 @@ function Navbar() {
                 activeClass="border-0 border-l-2 border-l-chart-2 px-0.5 font-bold"
                 className="group text-white hover:text-chart-2 flex gap-x-1 items-center"
               >
-                <IdCard className="group-hoder:text-chart-2 transition-colors" /> 
+                <HelpCircle className="group-hoder:text-chart-2 transition-colors" /> 
                 <span className="group-hoder:text-chart-2 transition-colors">About</span>
               </Link>
             </NavigationMenuLink>
