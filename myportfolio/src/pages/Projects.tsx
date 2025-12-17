@@ -35,7 +35,7 @@ function Projects() {
               />
             </div>
 
-            <div className="p-2 md:w-[650px]">
+            <div className="p-2 md:w-[650px] text-white">
               BecomeIngenious is a web app dedicated to inspiring curiosity
               through the stories of great scientists and inventors. Explore
               their lives, breakthroughs, and impact on the world — all in one
@@ -71,7 +71,7 @@ function Projects() {
               />
             </div>
 
-            <div className="p-2 md:w-[650px]">
+            <div className="p-2 md:w-[650px] text-white">
               Geetask is a sleek and efficient to-do list app built for focus
               and productivity. It helps users effortlessly organize tasks, stay
               on track, and get things done—without distractions.
