@@ -21,9 +21,9 @@ const linkVariant = {
 function Home() {
   return (
     <div className="text-center md:flex justify-center items-center md:gap-x-4">
-      <motion.div variants={imageVariant} initial="hidden" whileInView="visible" transition={{ delay: 0.3, duration: 0.9, ease: "easeInOut" }} viewport={{ once: false }} className="space-y-4 text-white">
+      <motion.div variants={imageVariant} initial="hidden" whileInView="visible" transition={{ delay: 0.3, duration: 0.9, ease: "easeInOut" }} viewport={{ once: false }} className="space-y-6 md:space-y-4 text-white">
         <h2 className="text-3xl mt-2">Hi, I'm</h2>
-        <p className=" font-bold md:text-8xl text-4xl">Goodness Omogbeja</p>
+        <p className=" font-bold md:text-8xl text-6xl">Goodness Omogbeja</p>
         <span className="text-chart-2 text-xl">Full Stack Developer</span>
         <motion.div variants={linkVariant} initial="hidden" whileInView="visible" transition={{ delay: 0.3, duration: 0.9, ease: "easeInOut" }} viewport={{ once: false }} className="flex justify-center text-4xl gap-3 mt-4">
           <a
