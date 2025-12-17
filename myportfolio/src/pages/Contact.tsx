@@ -64,7 +64,7 @@ export default function Contact() {
       viewport={{ once: false, amount: 0.2 }}
       className="mt-24 mb-20 md:mt-16 w-full"
     >
-      <Card className="rounded-2xl max-w-5xl mx-auto bg-linear-to-br from-chart-2/40 via-black/40 to-black/40 backdrop-blur-sm">
+      <Card className="rounded-2xl max-w-5xl mx-auto bg-gradient-to-br from-chart-2/40 via-black/40 to-black/40 backdrop-blur-sm">
         <CardHeader className="text-center space-y-3">
           <p className="text-xs uppercase tracking-[0.3em] text-muted">
             Let’s build something
@@ -155,7 +155,7 @@ export default function Contact() {
                 </Button>
               </DrawerTrigger>
 
-              <DrawerContent className="bg-linear-to-br from-chart-2 via-black/95 to-black/90">
+              <DrawerContent className="bg-gradient-to-br from-chart-2 via-black/95 to-black/90">
                 <DrawerHeader className="space-y-1">
                   <DrawerTitle className="text-2xl font-semibold text-white">
                     Send me a message

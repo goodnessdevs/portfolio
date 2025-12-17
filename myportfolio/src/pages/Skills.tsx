@@ -19,7 +19,6 @@ const skillsWrapperVariant: Variants = {
       type: "spring",
       stiffness: 80,
       damping: 18,
-      delay: 0.1,
       when: "beforeChildren",
       staggerChildren: 0.08,
     },

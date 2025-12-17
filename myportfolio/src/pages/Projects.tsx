@@ -23,11 +23,11 @@ function Projects() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
         viewport={{ once: false }}
-        className="p-6 bg-linear-to-br from-chart-2/40 via-black/40 to-black/40 backdrop-blur-sm"
+        className="p-6 bg-gradient-to-br from-chart-2/40 via-black/40 to-black/40 backdrop-blur-sm"
       >
         <CardContent>
           <div className="md:flex justify-between items-center md:space-x-20">
-            <div className="p-2 rounded-md md:w-100 w-fit flex md:justify-center items-center bg-gray-900">
+            <div className="p-2 rounded-md md:w-[400px] w-fit flex md:justify-center items-center bg-gray-900">
               <img
                 src={site1}
                 alt="BecomeIngenious"
@@ -35,7 +35,7 @@ function Projects() {
               />
             </div>
 
-            <div className="p-2 md:w-162.5">
+            <div className="p-2 md:w-[650px]">
               BecomeIngenious is a web app dedicated to inspiring curiosity
               through the stories of great scientists and inventors. Explore
               their lives, breakthroughs, and impact on the world — all in one
@@ -59,11 +59,11 @@ function Projects() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, delay: 0.3 }}
         viewport={{ once: false }}
-        className="p-6 bg-linear-to-br from-chart-2/40 via-black/40 to-black/40 backdrop-blur-sm"
+        className="p-6 bg-gradient-to-br from-chart-2/40 via-black/40 to-black/40 backdrop-blur-sm"
       >
         <CardContent>
           <div className="md:flex justify-between items-center md:space-x-20">
-            <div className="p-2 rounded-md md:w-100 w-fit flex md:justify-center items-center bg-gray-900">
+            <div className="p-2 rounded-md md:w-[400px] w-fit flex md:justify-center items-center bg-gray-900">
               <img
                 src={site3}
                 alt="Geetask"
@@ -71,7 +71,7 @@ function Projects() {
               />
             </div>
 
-            <div className="p-2 md:w-162.5">
+            <div className="p-2 md:w-[650px]">
               Geetask is a sleek and efficient to-do list app built for focus
               and productivity. It helps users effortlessly organize tasks, stay
               on track, and get things done—without distractions.
