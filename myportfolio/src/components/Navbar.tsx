@@ -5,11 +5,11 @@ import {
   NavigationMenuList,
 } from "./ui/navigation-menu";
 import { Link } from "react-scroll";
-import { Download, HelpCircle, Home, IdCard, PanelsTopLeft, Phone } from "lucide-react";
+import { HelpCircle, Home, IdCard, PanelsTopLeft, Phone } from "lucide-react";
 
 function Navbar() {
   return (
-    <nav className="hidden fixed z-50 w-full md:flex justify-center items-center p-3 text-white text-lg font-semibold manrope backdrop-blur-xs">
+    <nav className="hidden fixed z-50 w-full md:flex justify-center items-center p-3 text-white text-lg font-semibold abeezee backdrop-blur-xs">
       <NavigationMenu>
         <NavigationMenuList className="space-x-8 tracking-wide">
           <NavigationMenuItem>
@@ -97,7 +97,7 @@ function Navbar() {
             </NavigationMenuLink>
           </NavigationMenuItem>
 
-          <NavigationMenuItem className="bg-chart-2/50 hover:bg-chart-2/80 transition duration-700 backdrop-blur-xs text-white p-2 text-sm rounded-md hover:opacity-85">
+          {/* <NavigationMenuItem className="bg-chart-2/50 hover:bg-chart-2/80 transition duration-700 backdrop-blur-xs text-white p-2 text-sm rounded-md hover:opacity-85">
             <a
               href="/resume.pdf"
               download
@@ -106,7 +106,7 @@ function Navbar() {
               <Download className="w-4 h-4" />
               Resume
             </a>
-          </NavigationMenuItem>
+          </NavigationMenuItem> */}
         </NavigationMenuList>
       </NavigationMenu>
     </nav>
