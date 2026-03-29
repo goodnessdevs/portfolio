@@ -71,7 +71,7 @@ function Projects() {
               />
             </div>
 
-            <div className="p-2 md:w-[650px] text-white">
+            <div className="p-2 md:w-162.5 text-white">
               Geetask is a sleek and efficient to-do list app built for focus
               and productivity. It helps users effortlessly organize tasks, stay
               on track, and get things done—without distractions.
