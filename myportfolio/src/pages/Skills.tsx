@@ -1,5 +1,6 @@
 // src/pages/Skills.tsx
 import {
+  faDocker,
   faNodeJs,
   faReact,
   faSquareGit,
@@ -49,6 +50,7 @@ const skills = [
   { name: "Prisma ORM", icon: undefined },
   { name: "PostgreSQL", icon: undefined },
   { name: "NESTJS", icon: undefined },
+  { name: "Docker", icon: faDocker },
   { name: "Git and Github", icon: faSquareGit },
 ];
 
